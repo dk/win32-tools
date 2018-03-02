@@ -94,7 +94,7 @@ export_key( char * key, DWORD type, int vlen, char * valbuf)
          fwrite( valbuf, 1, vlen, stdout);
          break;
       case TYP_I:
-         printf( "%ld", ( long) &valbuf);
+         printf( "%ld", ( long) *((DWORD*)valbuf));
          break;
       case TYP_X:
          for ( i = 0; i < vlen; i++)
@@ -568,7 +568,7 @@ REREAD:
                   vlen = 0;
                   buf[0] = '\0';
                }   
-            }   
+	    }
          }
          
          if ( hasvalue) {
