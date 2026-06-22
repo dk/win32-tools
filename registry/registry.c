@@ -449,6 +449,10 @@ void main( int argc, char ** argv)
       if ( hasoptvalfile)
            die("Confusing -f option when no value and no key given\n");
    }
+   if ( !hasvalue ) {
+      access = KEY_READ;
+      if ( hasoptdebug) fprintf( stderr, "** access mode set to KEY_READ\n");
+   }
 
    // validations
    if ( hasoptdebug) fprintf( stderr, "** c:%d d:%d e:%d p:%d(exp:%d) k:%d i:%d o:%d\n",
